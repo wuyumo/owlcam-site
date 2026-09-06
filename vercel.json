@@ -1,4 +1,4 @@
 {
   "rewrites": [{ "source": "/download", "destination": "/api/download" }],
-  "redirects": [{ "source": "/account", "destination": "https://polar.sh/OWLCAM_ORG_SLUG/portal", "permanent": false }]
+  "redirects": [{ "source": "/account", "destination": "https://polar.sh/listenin/portal", "permanent": false }]
 }
