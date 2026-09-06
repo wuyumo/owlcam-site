@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Owl Cam — FAQ" description="Questions about Owl Cam." lang="zh" path="/zh/faq">
+  <section><div class="wrap sec-in">
+    <span class="eyebrow">FAQ</span>
+    <h1 style="font-size:36px">常见问题</h1>
+        <details open><summary>"完全不动多久就停"是什么？</summary><p>防止录下大段静止画面的硬上限：没有任何动作、也没识别到人，持续这么久就停，并把当前画面当作新的空场景。默认 20 秒。</p></details>
+    <details><summary>时间戳会影响检测吗？</summary><p>不会。时间戳写进的是帧的副本，检测器看到的仍是摄像头原始画面，不会把跳动的数字当成动作。</p></details>
+    <details><summary>Pro 密钥能用在几台 Mac？</summary><p>两台。换机时在旧机器上点"移除"即可释放。</p></details>
+    <details><summary>能选 iPhone 的哪颗镜头？</summary><p>不能，这是 macOS 的限制：连续互通相机在 Mac 端只是一个设备。控制中心的"居中人像"会切到超广角并自动构图。</p></details>
+    <details><summary>怎么卸载？</summary><p>菜单栏 → 退出 Owl Cam，然后把 App 拖到废纸篓。配置在 ~/Library/Application Support/OwlCam，录像在你选的保存位置，都不会被自动删除。</p></details> 
+  </div></section>
+</Base>

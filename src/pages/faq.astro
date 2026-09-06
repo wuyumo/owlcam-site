@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Owl Cam — FAQ" description="Questions about Owl Cam." lang="en" path="/faq">
+  <section><div class="wrap sec-in">
+    <span class="eyebrow">FAQ</span>
+    <h1 style="font-size:36px">Questions</h1>
+         <details open><summary>What is "fully still for"?</summary><p>The hard cap that keeps you from recording piles of still footage: no movement at all and no person recognised for that long → stop, and treat the current frame as the new empty scene. Default 20 s.</p></details>
+    <details><summary>Does the timestamp affect detection?</summary><p>No. The stamp is drawn into a copy of each frame; the detector still sees the raw camera picture, so the ticking digits never count as motion.</p></details>
+    <details><summary>How many Macs per Pro key?</summary><p>Two. Click Remove on the old machine to free a seat.</p></details>
+    <details><summary>Can I pick which iPhone lens?</summary><p>No — a macOS limitation: Continuity Camera is a single device on the Mac side. Center Stage in Control Center switches to the ultra-wide and auto-frames.</p></details>
+    <details><summary>How do I uninstall?</summary><p>Menu bar → Quit Owl Cam, then drag the app to the Trash. Settings live in ~/Library/Application Support/OwlCam and recordings in the folder you chose; neither is deleted automatically.</p></details>
+  </div></section>
+</Base>

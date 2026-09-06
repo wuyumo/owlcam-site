@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+const B = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+---
+<Base title="Owl Cam — 有人在就不切断的 Mac 摄像头录像" description="macOS 上的动作触发录像：USB 摄像头或 iPhone，有动静就开录，人还在画面里就一直录，房间真空了才停。" lang="zh" path="/zh">
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap hero-in">
+      <span class="eyebrow">macOS · 菜单栏 · 纯本地</span>
+      <h1>有事就录。<br/>人还在，就不切断。</h1>
+      <p class="lede">Owl Cam 盯着你的摄像头或 iPhone，有动静就开始录，只要画面里还有人就一直录——哪怕对方一动不动。一个事件一段完整视频，还带事发前几秒。</p>
+      <div class="cta-row">
+        <a class="btn primary big" href={`${B}/download`}>下载 Mac 版</a>
+        <a class="btn big" href="#pricing">查看价格</a>
+      </div>
+      <p class="btn-note">单摄像头永久免费 · 14 天 Pro 试用 · macOS 14+ · Apple 芯片与 Intel</p>
+      <div class="shot"><img src={`${B}/shot-live.svg`} alt="Owl Cam 实时画面与检测器小窗" width="1440" height="810" loading="eager" /></div>
+    </div>
+  </header>
+
+  <section id="how">
+    <div class="wrap sec-in">
+      <span class="eyebrow">它怎么判断</span>
+      <h2>三条线，三种颜色，就这么多。</h2>
+      <p class="lede">多数动作录像一看像素不变就停——沙发上看书的人会被切成十段。Owl Cam 记住"空房间"的样子，拿当前画面和它比。</p>
+      <div class="rule"><span class="dot" style="background:#ff453a"></span><p><b>一动就开录。</b>帧间差分，反应快，不受光线影响。它只负责开始。</p></div>
+      <div class="rule"><span class="dot" style="background:#ff9f0a"></span><p><b>有东西就开录。</b>和空场景的差别。东西还在房间里就一直是高位，不动也一样。</p></div>
+      <div class="rule"><span class="dot" style="background:#30d158"></span><p><b>低于此才停录。</b>场景读数掉到线下并持续一段时间才停——而且只要视觉识别还看得到人，就绝不停。</p></div>
+      <div class="shot"><img src={`${B}/shot-detection.svg`} alt="检测设置页，三条阈值各自带实时曲线" width="1440" height="900" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <section id="features" style="padding-top:0">
+    <div class="wrap sec-in">
+      <span class="eyebrow">功能</span>
+      <h2>小 App，每一块都有用。</h2>
+      <div class="cards">
+        <div class="card"><span class="k">预录</span><h3>从事发之前开始</h3><p>环形缓冲让每段视频都包含触发前的几秒，不会在检测器"下决心"时丢掉开头。</p></div>
+        <div class="card"><span class="k">人像否决</span><h3>本机 Vision</h3><p>苹果的人脸与人体识别在本机运行，画面里有人就否决所有停止。什么都不上传。</p></div>
+        <div class="card"><span class="k">摄像头</span><h3>USB、内建、iPhone</h3><p>macOS 认得的摄像头都行，包括连续互通相机。每台独立检测，各写各的文件夹。</p></div>
+        <div class="card"><span class="k">回放</span><h3>日历 → 时间轴 → 缩略图</h3><p>有人的日子标红。在时间轴上拖一段就出缩略图，点一张从那一秒开始播。</p></div>
+        <div class="card"><span class="k">时间戳</span><h3>烙进画面，分秒不差</h3><p>每一帧按实际拍摄时刻打标，预录部分也准确；位置、大小、透明度随你调。</p></div>
+        <div class="card"><span class="k">存储</span><h3>预算 + 保护规则</h3><p>按容量或剩余空间封顶。先删最旧、最小或没拍到人的；最近的、大的、加了标记的留下。</p></div>
+        <div class="card"><span class="k">备份</span><h3>NAS 为主，U 盘兜底</h3><p>录完就复制出去，逐字节校验；NAS 断开时存到 U 盘，回来后自动补传。</p></div>
+        <div class="card"><span class="k">时段</span><h3>安静时间</h3><p>按星期和时间段暂停。不会录到一半切断，只是不再开始。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="padding-top:24px">
+    <div class="wrap sec-in">
+      <span class="eyebrow">价格</span>
+      <h2>一台摄像头免费，其余是 Pro。</h2>
+      <div class="pricing">
+        <div class="plan">
+          <h3>免费</h3>
+          <div class="price">$0 <small>永久</small></div>
+          <ul>
+            <li>一台摄像头</li><li>动作 + 在场检测，预录</li><li>本机人像否决</li><li>日历与时间轴回放</li><li>安静时段</li>
+            <li class="no">多摄像头</li><li class="no">时间戳、备份、存储预算</li>
+          </ul>
+          <a class="btn" href={`${B}/download`}>下载</a>
+        </div>
+        <div class="plan pro">
+          <h3>Pro</h3>
+          <div class="price">$29 <small>一次买断 · 2 台 Mac</small></div>
+          <ul>
+            <li>免费版全部功能</li><li>摄像头数量不限</li><li>烙印时间戳</li><li>自动备份到 NAS / U 盘</li><li>存储预算与保护规则</li><li>按摄像头单独设置</li><li>邮件支持</li>
+          </ul>
+          <a class="btn primary" href={`${B}/buy`}>购买 Pro</a>
+          <p class="btn-note">首次启动自动开始 14 天试用，无需账号。含税，由 Polar 代收。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:24px">
+    <div class="wrap sec-in">
+      <span class="eyebrow">FAQ</span>
+      <h2>你会问的</h2>
+      <details><summary>视频会离开我的 Mac 吗？</summary><p>不会。检测、录制、回放都在本机。唯一的联网是验证 Pro 密钥。备份只去你指定的地方。</p></details>
+      <details><summary>我坐着不动会被切断吗？</summary><p>这正是它被造出来要避免的事。你在房间里场景读数就一直高，视觉识别看到人就否决所有停止。唯一的出口是你自己设的硬上限："完全不动 N 秒且没识别到人"。</p></details>
+      <details><summary>支持哪些摄像头？</summary><p>macOS 认作摄像头的都行：USB 摄像头（Insta360 Link 2C 实测）、内建摄像头、以及连续互通相机的 iPhone。</p></details>
+      <details><summary>公证了吗？</summary><p>还没有，首个版本是临时签名。第一次右键 → 打开即可。公证版本在路上，之后更新不会再要摄像头权限。</p></details>
+      <details><summary>退款？</summary><p>先用 14 天试用。买了以后有问题发邮件，通过 Polar 处理。</p></details>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+const B = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+---
+<Base title="Owl Cam — the Mac camera recorder that never cuts you off" description="Motion-triggered recording for USB and iPhone cameras on macOS. Starts on movement, keeps recording while someone is still in frame, stops only when the room is truly empty." lang="en" path="/">
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap hero-in">
+      <span class="eyebrow">macOS · menu bar · local only</span>
+      <h1>Records when something happens.<br/>Never cuts while someone is still there.</h1>
+      <p class="lede">Owl Cam watches your webcam or iPhone, starts recording on movement, and keeps going as long as a person is in frame — even if they sit perfectly still. One clip per event, with a few seconds before it began.</p>
+      <div class="cta-row">
+        <a class="btn primary big" href={`${B}/download`}>Download for Mac</a>
+        <a class="btn big" href="#pricing">See pricing</a>
+      </div>
+      <p class="btn-note">Free forever for one camera · 14-day Pro trial · macOS 14+ · Apple Silicon &amp; Intel</p>
+      <div class="shot"><img src={`${B}/shot-live.svg`} alt="Owl Cam live view with the detector overlay" width="1440" height="810" loading="eager" /></div>
+    </div>
+  </header>
+
+  <section id="how">
+    <div class="wrap sec-in">
+      <span class="eyebrow">How it decides</span>
+      <h2>Three lines, three colours. That's the whole model.</h2>
+      <p class="lede">Most motion recorders stop the moment pixels stop changing — so a person reading on the sofa gets chopped into ten clips. Owl Cam keeps a frozen picture of the empty room and compares against that.</p>
+      <div class="rule"><span class="dot" style="background:#ff453a"></span><p><b>Moves → record.</b> Frame-to-frame motion. Fast, immune to light changes. It only ever starts a clip.</p></div>
+      <div class="rule"><span class="dot" style="background:#ff9f0a"></span><p><b>Present → record.</b> Difference from the empty scene. Stays high while something is in the room, even if it holds still.</p></div>
+      <div class="rule"><span class="dot" style="background:#30d158"></span><p><b>Below this → stop.</b> The clip ends only when the scene reading falls under the line and stays there — and never while Vision still sees a person.</p></div>
+      <div class="shot"><img src={`${B}/shot-detection.svg`} alt="Detection settings with live charts for the three thresholds" width="1440" height="900" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <section id="features" style="padding-top:0">
+    <div class="wrap sec-in">
+      <span class="eyebrow">What's in the box</span>
+      <h2>Small app. Every piece earns its place.</h2>
+      <div class="cards">
+        <div class="card"><span class="k">Pre-roll</span><h3>Starts before it started</h3><p>A rolling buffer means the first seconds of every event are in the file, not lost while the detector made up its mind.</p></div>
+        <div class="card"><span class="k">Person veto</span><h3>On-device Vision</h3><p>Apple's face and body detection runs locally and vetoes every stop while a person is in frame. Nothing is uploaded.</p></div>
+        <div class="card"><span class="k">Cameras</span><h3>USB, built-in, iPhone</h3><p>Any camera macOS sees, including Continuity Camera. Each runs its own detector and writes its own folder.</p></div>
+        <div class="card"><span class="k">Review</span><h3>Calendar → timeline → frames</h3><p>Days with people are marked red. Drag a span on the timeline to get thumbnails; click one to play from that second.</p></div>
+        <div class="card"><span class="k">Timestamp</span><h3>Burned in, exact</h3><p>Each frame is stamped with the moment it was shot — pre-roll included — in a position, size and opacity you choose.</p></div>
+        <div class="card"><span class="k">Storage</span><h3>Budget with protection rules</h3><p>Cap by size or free space. Delete oldest, smallest, or clips without people first. Keep anything recent, large, or marked.</p></div>
+        <div class="card"><span class="k">Backup</span><h3>NAS with a USB fallback</h3><p>Copies finished clips off the Mac, verifies them byte for byte, and catches up on the NAS when it comes back.</p></div>
+        <div class="card"><span class="k">Schedule</span><h3>Quiet hours</h3><p>Pause by weekday and time window. Recording never stops mid-clip; it simply won't start.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="padding-top:24px">
+    <div class="wrap sec-in">
+      <span class="eyebrow">Pricing</span>
+      <h2>Free for one camera. Pro for the rest.</h2>
+      <div class="pricing">
+        <div class="plan">
+          <h3>Free</h3>
+          <div class="price">$0 <small>forever</small></div>
+          <ul>
+            <li>One camera</li><li>Motion + presence detection, pre-roll</li><li>On-device person veto</li><li>Calendar &amp; timeline review</li><li>Quiet hours</li>
+            <li class="no">Multiple cameras</li><li class="no">Timestamp, backup, storage budget</li>
+          </ul>
+          <a class="btn" href={`${B}/download`}>Download</a>
+        </div>
+        <div class="plan pro">
+          <h3>Pro</h3>
+          <div class="price">$29 <small>one-time · 2 Macs</small></div>
+          <ul>
+            <li>Everything in Free</li><li>Unlimited cameras</li><li>Burned-in timestamp</li><li>Auto backup to NAS / USB</li><li>Storage budget with protection rules</li><li>Per-camera overrides</li><li>Email support</li>
+          </ul>
+          <a class="btn primary" href={`${B}/buy`}>Buy Pro</a>
+          <p class="btn-note">14-day trial starts on first launch, no account. VAT included, handled by Polar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:24px">
+    <div class="wrap sec-in">
+      <span class="eyebrow">FAQ</span>
+      <h2>Fair questions</h2>
+      <details><summary>Does any video leave my Mac?</summary><p>No. Detection, recording and review are local. The only network call is validating a Pro key. Backups go where you point them.</p></details>
+      <details><summary>Will it stop while I'm sitting still?</summary><p>That is the one thing it is built not to do. The scene line stays high while you're in the room, and Vision vetoes every stop while it sees a person. A hard cap you set ("fully still for N seconds, no one recognised") is the only exit.</p></details>
+      <details><summary>Which cameras work?</summary><p>Anything macOS exposes as a camera: USB webcams (tested with the Insta360 Link 2C), the built-in camera, and iPhone via Continuity Camera.</p></details>
+      <details><summary>Is it notarized?</summary><p>Not yet — the first build is signed ad-hoc. Right-click → Open once. Notarized builds are coming; updates will not ask for camera permission again after that.</p></details>
+      <details><summary>Refunds?</summary><p>Try the 14-day trial first. If something's wrong after you buy, email and it gets sorted through Polar.</p></details>
+    </div>
+  </section>
+</Base>

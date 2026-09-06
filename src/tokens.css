@@ -1,0 +1,68 @@
+/* Hallmark · design-system: ListenIn Dark Aurora · genre: dark-glass / aurora · tone: technical, calm · anchor hue: ice-blue
+   2026-08-08 由 Light 翻转：品牌记忆「冰蓝 + 暗色玻璃 = 官方主题色」，App 图标 / DMG
+   安装界面 / 官网自此同调。语义 token 名不变，全站样式零改动继承。 */
+:root {
+  color-scheme: dark;
+
+  --color-paper: oklch(14% 0.012 258);
+  --color-paper-raised: oklch(18.5% 0.014 258);
+  --color-paper-high: oklch(23% 0.016 257);
+  --color-rule: oklch(92% 0.02 255 / 0.10);
+  --color-rule-strong: oklch(92% 0.02 255 / 0.26);
+  --color-ink: oklch(95% 0.008 250);
+  --color-muted: oklch(72% 0.022 255);
+  --color-dim: oklch(60% 0.022 255);
+  --color-accent: oklch(78% 0.095 262);
+  --color-accent-hover: oklch(84% 0.075 262);
+  --color-accent-ink: oklch(15% 0.015 258);
+  --color-focus: oklch(78% 0.095 262);
+  --color-error: oklch(68% 0.19 22);
+  --color-overlay: oklch(8% 0.01 258 / 0.55);
+  --color-shadow: oklch(4% 0.01 258 / 0.55);
+  --color-glow: oklch(78% 0.10 262 / 0.17);
+  --color-key-top: oklch(27% 0.02 258);
+  --color-key-bottom: oklch(18% 0.016 258);
+  --color-wave-surface: oklch(19.5% 0.02 257);
+  --wave-background-rgb: 0.039 0.047 0.063;
+
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, monospace;
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.953rem;
+  --text-2xl: 2.441rem;
+  --text-display: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --rule-thin: 0.5px;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-card: 0.875rem;
+
+  /* 统一内容列宽：每个 section 的标题与内容块共用它，左右边缘全站对齐——
+     页脚也用它，否则页脚会比正文宽、两头对不齐。
+     .wrap（1020）是外框；--content 是内框，让版面不再各区各宽。 */
+  --content: 880px;
+}
