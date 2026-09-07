@@ -1,0 +1,55 @@
+<!doctype html><meta charset="utf-8">
+<style>
+html,body{margin:0;background:transparent}
+*{box-sizing:border-box}
+.win{position:relative;width:1200px;height:751px;background:#2b2b2d;border-radius:11px;overflow:hidden;
+  font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+.title{height:32px;position:relative;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:rgba(255,255,255,.62);letter-spacing:-.1px}
+.tl{position:absolute;left:13px;top:10px;display:flex;gap:8px}
+.tl i{width:12px;height:12px;border-radius:50%;display:block;border:.5px solid rgba(0,0,0,.25)}
+.grid{position:absolute;top:32px;left:0;right:0;height:683px;display:grid;grid-template-columns:591px 591px;gap:6px;padding:6px}
+.tile{position:relative;width:591px;height:332.4px;border-radius:6px;overflow:hidden;background:#000}
+.tile > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04) brightness(.96)}
+.tile .veil{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.28) 100%)}
+.stamp{position:absolute;left:8px;top:8px;font:600 9.5px "SF Mono",Menlo,monospace;color:rgba(255,255,255,.92);background:rgba(0,0,0,.38);padding:2px 5px;border-radius:2px;letter-spacing:.2px}
+.chip{position:absolute;right:6px;bottom:6px;height:38px;display:flex;align-items:center;gap:8px;padding:0 8px 0 7px;border-radius:9px;
+  background:rgba(58,58,60,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 4px 14px rgba(0,0,0,.28);font-size:13px}
+.btn{width:34px;height:24px;border-radius:6px;background:rgba(255,255,255,.17);display:flex;align-items:center;justify-content:center}
+.btn img{height:11px}
+.chip img.g{height:13px}
+.chip img.rec{height:14px}
+.chip .t{color:#fff;white-space:nowrap}
+.chip .t.dim{color:rgba(255,255,255,.62)}
+.chip .n{font-variant-numeric:tabular-nums;color:rgba(255,255,255,.62);margin-left:2px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:36px;display:flex;align-items:center;gap:6px;padding:0 10px;background:#2b2b2d;border-top:.5px solid rgba(255,255,255,.09);font-size:12px}
+.pill{height:22px;display:flex;align-items:center;gap:5px;padding:0 8px 0 7px;border-radius:6px;background:rgba(255,255,255,.14);white-space:nowrap}
+.pill img{height:9.5px}
+.menu{display:flex;align-items:center;gap:4px;margin-left:6px;color:#fff}
+.menu img.v{height:11px}.menu img.c{height:6px;margin-left:1px;opacity:.8}
+.seg{margin-left:auto;height:22px;display:flex;padding:1px;border-radius:6px;background:rgba(255,255,255,.1)}
+.seg span{width:26px;display:flex;align-items:center;justify-content:center;border-radius:5px}
+.seg span.on{background:rgba(255,255,255,.25)}
+.seg img{height:11px;opacity:.9}
+</style>
+<div class="win">
+  <div class="title"><div class="tl"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>Insta360 Link 2C · Logitech C920 · iPhone Camera · FaceTime HD Camera</div>
+  <div class="grid">
+    <div class="tile"><img src="img/flat.jpg" style="object-position:50% 40%"><div class="veil"></div><div class="stamp">2026-09-07 14:22:41</div>
+      <div class="chip"><div class="btn"><img src="sym/pause.png"></div><img class="g" src="sym/person.png"><img class="rec" src="sym/rec.png"><span class="t">Recording · person in frame</span><span class="n">1:24</span><div class="btn"><img src="sym/sliders.png" style="height:12px"></div></div></div>
+    <div class="tile"><img src="img/catwindow.jpg" style="object-position:50% 45%"><div class="veil"></div><div class="stamp">2026-09-07 14:22:41</div>
+      <div class="chip"><div class="btn"><img src="sym/pause.png"></div><img class="rec" src="sym/rec.png"><span class="t">Recording · no motion, stops in 9 s</span><span class="n">0:52</span><div class="btn"><img src="sym/sliders.png" style="height:12px"></div></div></div>
+    <div class="tile"><img src="img/houseforest.jpg" style="object-position:50% 55%;filter:saturate(.7) contrast(1.05) brightness(.9)"><div class="veil"></div><div class="stamp">2026-09-07 14:22:41</div>
+      <div class="chip"><div class="btn"><img src="sym/pause.png"></div><img class="rec" src="sym/idle.png"><span class="t dim">Idle</span><div class="btn"><img src="sym/sliders.png" style="height:12px"></div></div></div>
+    <div class="tile"><img src="img/carshop.jpg" style="object-position:55% 50%"><div class="veil"></div><div class="stamp">2026-09-07 14:22:41</div>
+      <div class="chip"><div class="btn"><img src="sym/pause.png"></div><img class="g" src="sym/person.png"><img class="rec" src="sym/rec.png"><span class="t">Recording · person in frame</span><span class="n">0:37</span><div class="btn"><img src="sym/sliders.png" style="height:12px"></div></div></div>
+  </div>
+  <div class="bar">
+    <div class="pill"><img src="sym/eye.png">Insta360 Link 2C</div>
+    <div class="pill"><img src="sym/eye.png">Logitech C920</div>
+    <div class="pill"><img src="sym/eye.png">iPhone Camera</div>
+    <div class="pill"><img src="sym/eye.png">FaceTime HD Camera</div>
+    <div class="menu"><img class="v" src="sym/camplus.png">Cameras<img class="c" src="sym/chev.png"></div>
+    <div class="seg"><span><img src="sym/grid.png"></span><span><img src="sym/split21.png"></span><span><img src="sym/split12.png"></span><span class="on"><img src="sym/grid.png"></span></div>
+  </div>
+</div>
