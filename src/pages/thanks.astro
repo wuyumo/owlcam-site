@@ -5,7 +5,34 @@ import Base from '../layouts/Base.astro';
   <section><div class="wrap sec-in">
     <span class="eyebrow">Thank you</span>
     <h1 style="font-size:36px">Your Pro key is on its way</h1>
-    <p>Polar emails the license key to the address you used at checkout, usually within a minute. Then, in Owl Cam: <strong>Settings → General → License</strong>, paste the key and click Activate.</p>
-    <p>Lost the mail? Open <a href="https://polar.sh/owlcam/portal">your Polar account</a> to see every key you own. Each key works on two Macs.</p>
+    <div id="keybox" hidden>
+      <p>Here is your license key. It has also been emailed to you.</p>
+      <p><code id="key" style="font-size:20px;letter-spacing:.02em;user-select:all;padding:10px 14px;border:1px solid var(--line2);border-radius:10px;background:var(--card);display:inline-block"></code>
+      <button id="copy" class="btn" style="margin-left:10px">Copy</button></p>
+      <p>In Owl Cam: <strong>Settings → General → License</strong>, paste the key and click Activate. One key works on two Macs.</p>
+    </div>
+    <div id="mailbox">
+      <p>Polar emails the license key to the address you used at checkout, usually within a minute. Then, in Owl Cam: <strong>Settings → General → License</strong>, paste the key and click Activate.</p>
+      <p>Lost the mail? Open <a href="https://polar.sh/owlcam/portal">your Polar account</a> to see every key you own. Each key works on two Macs.</p>
+    </div>
   </div></section>
+  <script is:inline>
+  (async () => {
+    // Polar appends a short-lived customer session token to the success URL; use it once,
+    // client-side only, to show the key, then scrub it from the address bar.
+    const u = new URL(location.href); const t = u.searchParams.get('customer_session_token');
+    if (!t) return;
+    u.searchParams.delete('customer_session_token'); history.replaceState(null, '', u);
+    try {
+      const r = await fetch('https://api.polar.sh/v1/customer-portal/license-keys/?limit=5', { headers: { Authorization: 'Bearer ' + t } });
+      if (!r.ok) return;
+      const j = await r.json(); const k = (j.items || []).find(x => x.key && /^OWL-/.test(x.key)) || (j.items || [])[0];
+      if (!k || !k.key) return;
+      document.getElementById('key').textContent = k.key;
+      document.getElementById('keybox').hidden = false; document.getElementById('mailbox').hidden = true;
+      const b = document.getElementById('copy');
+      b.onclick = async () => { try { await navigator.clipboard.writeText(k.key); b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1500); } catch {} };
+    } catch {}
+  })();
+  </script>
 </Base>
