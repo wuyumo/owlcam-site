@@ -116,6 +116,23 @@ const schema = {
     .step{background:var(--card);border:.5px solid var(--line);border-radius:var(--r);padding:20px 22px}
     .step b{display:block;font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.14em;margin-bottom:8px}
     .step p{color:var(--muted);font-size:15px;line-height:1.6}
+    .trust{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+    .trust span{font-size:13px;color:var(--muted);background:var(--card);border:.5px solid var(--line);border-radius:999px;padding:5px 12px;display:inline-flex;align-items:center;gap:6px}
+    .trust b{color:var(--ink);font-weight:600}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+    @media (max-width:720px){.compare{grid-template-columns:1fr}}
+    .compare > div{background:var(--card);border:.5px solid var(--line);border-radius:var(--r);padding:20px 22px}
+    .compare .them{border-style:dashed}
+    .compare .n{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:4px}
+    .compare .them .n{color:var(--dim)} .compare .us .n{color:var(--ink)}
+    .compare p{color:var(--muted);font-size:15px;line-height:1.6}
+    .compare .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:10px}
+    .limits{display:flex;flex-direction:column;gap:0;margin-top:4px}
+    .limits div{display:flex;gap:12px;padding:13px 0;border-top:.5px solid var(--line);color:var(--muted);font-size:15px;line-height:1.6}
+    .limits div:last-child{border-bottom:.5px solid var(--line)}
+    .limits b{color:var(--ink);font-weight:600;flex:none;min-width:8.5ch}
+    pre.verify{background:var(--card);border:.5px solid var(--line);border-radius:var(--r);padding:16px 18px;overflow-x:auto;font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.75;margin-top:8px}
+    pre.verify b{color:var(--ink);font-weight:500}
     .rule{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:.5px solid var(--line)}
     .rule:last-child{border-bottom:.5px solid var(--line)}
     .rule .dot{width:12px;height:12px;border-radius:50%;flex:none;margin-top:8px}

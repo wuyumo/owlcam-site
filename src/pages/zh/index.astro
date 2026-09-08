@@ -2,87 +2,162 @@
 import Base from '../../layouts/Base.astro';
 const B = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
 ---
-<Base title="Owl Cam — 有人在就不切断的 Mac 摄像头录像" description="macOS 上的动作触发录像：USB 摄像头或 iPhone，有动静就开录，人还在画面里就一直录，房间真空了才停。" lang="zh" path="/zh">
+<Base title="Owl Cam — 知道你不在的时候，房间里发生了什么" description="把 Mac 和任意摄像头或 iPhone 变成本地监控：有事才录，人在就不切断，视频只存在这台 Mac 上。一台摄像头永久免费，$29 一次买断其余功能。" lang="zh" path="/zh">
   <header class="hero">
     <div class="hero-glow"></div>
     <div class="wrap hero-in">
-      <span class="eyebrow">macOS · 菜单栏 · 纯本地</span>
-      <h1>有事就录。<br/>人还在，就不切断。</h1>
-      <p class="lede">Owl Cam 盯着你的摄像头或 iPhone，有动静就开始录，只要画面里还有人就一直录——哪怕对方一动不动。一个事件一段完整视频，还带事发前几秒。</p>
+      <span class="eyebrow">macOS · 菜单栏 · 视频不出本机</span>
+      <h1>知道你不在的时候，<br/>房间里发生了什么。</h1>
+      <p class="lede">Owl Cam 把 Mac 和任意摄像头或 iPhone 变成一台监控：有事才录，只要人还在房间里就一直录下去。视频只存在这台 Mac 上。</p>
       <div class="cta-row">
         <a class="btn primary big" href={`${B}/download`}>下载 Mac 版</a>
         <a class="btn big" href="#pricing">查看价格</a>
       </div>
-      <p class="btn-note">单摄像头永久免费 · 14 天 Pro 试用 · macOS 14+ · Apple 芯片与 Intel</p>
+      <div class="trust">
+        <span>✓ <b>已通过 Apple 公证</b></span>
+        <span>✓ <b>不用注册，不上传云端</b></span>
+        <span>✓ <b>一台摄像头永久免费</b></span>
+        <span>macOS 14+ · 支持 Apple 芯片与 Intel</span>
+      </div>
       <div class="shot"><img src={`${B}/shot-live.jpg`} alt="Owl Cam 实时画面：四路摄像头，两路检测到有人正在录制，一路即将停止，一路待机" width="1440" height="901" loading="eager" /></div>
     </div>
   </header>
 
-  <section id="how">
+  <section id="who">
     <div class="wrap sec-in">
-      <span class="eyebrow">它怎么判断</span>
-      <h2>三条线，三种颜色，就这么多。</h2>
-      <p class="lede">多数动作录像一看像素不变就停——沙发上看书的人会被切成十段。Owl Cam 记住"空房间"的样子，拿当前画面和它比。</p>
-      <div class="rule"><span class="dot" style="background:#ff453a"></span><p><b>一动就开录。</b>帧间差分，反应快，不受光线影响。它只负责开始。</p></div>
-      <div class="rule"><span class="dot" style="background:#ff9f0a"></span><p><b>有东西就开录。</b>和空场景的差别。东西还在房间里就一直是高位，不动也一样。</p></div>
-      <div class="rule"><span class="dot" style="background:#30d158"></span><p><b>低于此才停录。</b>场景读数掉到线下并持续一段时间才停——而且只要视觉识别还看得到人，就绝不停。</p></div>
-      <div class="shot"><img src={`${B}/shot-detection.png`} alt="检测设置页，三条阈值各自带实时曲线" width="1440" height="1408" loading="lazy" /></div>
+      <span class="eyebrow">谁在用</span>
+      <h2>摄像头你已经有了，缺的只是一台闲置的 Mac。</h2>
+      <div class="cards">
+        <div class="card"><span class="k">出门时的桌面</span><h3>下午不在家</h3><p>你想知道有没有人靠近过你的桌子，而且是亲眼看到，不是猜。</p></div>
+        <div class="card"><span class="k">架子上的旧 Mac</span><h3>一台还能开机的旧 MacBook</h3><p>对着门口、婴儿床或工作台。反正它本来也是躺在抽屉里，试一下不花钱。</p></div>
+        <div class="card"><span class="k">柜台</span><h3>店铺、工作室、诊所</h3><p>iMac 本来就朝着屋子。再架一台 iPhone 就是第二机位，不用订阅，也不用在墙上再装个盒子。</p></div>
+      </div>
+      <div class="limits" style="margin-top:18px">
+        <div><b>不适合你？</b>如果你要的是在办公室打开手机看实时画面，或者有人进门的瞬间收到推送，那 Owl Cam 不是对的工具。它录下来供你事后回看，不串流，也不推送。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:12px">
+    <div class="wrap sec-in">
+      <span class="eyebrow">问题在哪</span>
+      <h2>普通的移动侦测，会把你切断。</h2>
+      <p class="lede">静坐十秒，这段就结束了；再动一下，又开一段新的。在桌前待一晚上，变成四十个碎片，而你真正想看的那一刻，正好被切在两段之间。</p>
+      <div class="compare">
+        <div class="them"><span class="k">普通移动侦测</span><div class="n">14 段</div><p>一个人，在桌前一小时。其中三段不到五秒。要找那一刻，只能一个个打开。</p></div>
+        <div class="us"><span class="k">Owl Cam</span><div class="n">1 段</div><p>同样一小时，一个文件。从第一次动作前三秒开始，直到房间真的空了才结束。</p></div>
+      </div>
+      <h2 style="margin-top:28px">三个读数，三条线。</h2>
+      <p class="lede">Owl Cam 记住空房间的那一帧，然后把每一帧都和它比较，所以一个不动的人，依然明显还在那儿。</p>
+      <div class="rule"><span class="dot" style="background:#ff453a"></span><p><b>一动就开录。</b>相邻两帧的变化。反应快，不受开灯关灯影响。它只负责开始录，永远不会结束一段录制。</p></div>
+      <div class="rule"><span class="dot" style="background:#ff9f0a"></span><p><b>有东西就开录。</b>和空场景的差异。只要画面里多了东西就一直高——人、动物、一个快递箱——哪怕它一动不动。</p></div>
+      <div class="rule"><span class="dot" style="background:#30d158"></span><p><b>低于这条线才停。</b>读数掉到线以下并持续一段时间，这段才结束。而且只要 Apple 的本机人像识别还看得见人，就绝不停。</p></div>
+      <div class="shot"><img src={`${B}/shot-detection.png`} alt="检测设置页：三条阈值的实时曲线" width="1440" height="1408" loading="lazy" /></div>
+      <p class="btn-note">上面每一个数值都可以自己调，拖动时图表实时变化。没有一个叫做「AI 灵敏度」的黑盒滑块。</p>
+    </div>
+  </section>
+
+  <section id="privacy" style="padding-top:0">
+    <div class="wrap sec-in">
+      <span class="eyebrow">隐私</span>
+      <h2>视频不会离开你的 Mac。</h2>
+      <p class="lede">这正是它做成一个装在你机器上的 App、而不是别人云服务的原因。这句话也不该让你只凭信任接受，所以下面是你自己验证的方法。</p>
+      <div class="cards">
+        <div class="card"><span class="k">存储</span><h3>就是你选的文件夹里的文件</h3><p>普通 <code>.mp4</code>，QuickTime 直接能打开，能移动、能删除。没有数据库，没有私有格式，不绑架你的数据。</p></div>
+        <div class="card"><span class="k">检测</span><h3>在这台 Mac 的芯片上完成</h3><p>动作分析和 Apple 的人像识别都在本机运行，画面除了写进你的录像文件，不去任何地方。</p></div>
+        <div class="card"><span class="k">网络</span><h3>只有一个请求，还只在你付费后</h3><p>全 App 唯一的对外请求是校验 Pro 密钥。不用注册，没有统计，没有崩溃上报。免费版完全不联网。</p></div>
+      </div>
+      <pre class="verify"><b># 确认 App 由 Apple 签名并公证</b>
+codesign -dvv /Applications/Owl\ Cam.app
+spctl -a -vv -t install /Applications/Owl\ Cam.app
+
+<b># 然后盯着它：用 LuLu 或 Little Snitch 这类网络监控，</b>
+<b># 免费版一个对外连接都不会发起。</b></pre>
     </div>
   </section>
 
   <section id="features" style="padding-top:0">
     <div class="wrap sec-in">
-      <span class="eyebrow">功能</span>
-      <h2>小 App，每一块都有用。</h2>
+      <span class="eyebrow">都有什么</span>
+      <h2>App 不大，但每个功能都有存在的理由。</h2>
       <div class="cards">
-        <div class="card"><span class="k">预录</span><h3>从事发之前开始</h3><p>环形缓冲让每段视频都包含触发前的几秒，不会在检测器"下决心"时丢掉开头。</p></div>
-        <div class="card"><span class="k">人像否决</span><h3>本机 Vision</h3><p>苹果的人脸与人体识别在本机运行，画面里有人就否决所有停止。什么都不上传。</p></div>
-        <div class="card"><span class="k">摄像头</span><h3>USB、内建、iPhone</h3><p>macOS 认得的摄像头都行，包括连续互通相机。每台独立检测，各写各的文件夹。</p></div>
-        <div class="card"><span class="k">回放</span><h3>日历 → 时间轴 → 缩略图</h3><p>有人的日子标红。在时间轴上拖一段就出缩略图，点一张从那一秒开始播。</p></div>
-        <div class="card"><span class="k">时间戳</span><h3>烙进画面，分秒不差</h3><p>每一帧按实际拍摄时刻打标，预录部分也准确；位置、大小、透明度随你调。</p></div>
-        <div class="card"><span class="k">存储</span><h3>预算 + 保护规则</h3><p>按容量或剩余空间封顶。先删最旧、最小或没拍到人的；最近的、大的、加了标记的留下。</p></div>
-        <div class="card"><span class="k">备份</span><h3>NAS 为主，U 盘兜底</h3><p>录完就复制出去，逐字节校验；NAS 断开时存到 U 盘，回来后自动补传。</p></div>
-        <div class="card"><span class="k">时段</span><h3>安静时间</h3><p>按星期和时间段暂停。不会录到一半切断，只是不再开始。</p></div>
+        <div class="card"><span class="k">预录</span><h3>从「开始之前」就开始</h3><p>环形缓冲把每次事件最开始的几秒也写进文件，而不是在检测器还在犹豫时白白丢掉。</p></div>
+        <div class="card"><span class="k">回看</span><h3>日历 → 时间轴 → 画面</h3><p>有人出现的日子会被标记。在时间轴上拖出一段就能看到缩略图，点一张从那一秒开始播。</p></div>
+        <div class="card"><span class="k">摄像头</span><h3>USB、内置、iPhone</h3><p>macOS 能看到的摄像头都行，包括连续互通相机。每一路独立检测、独立录制、各存各的文件夹。</p></div>
+        <div class="card"><span class="k">时间戳</span><h3>烙进画面，时间准确</h3><p>每一帧都带着它真正被拍下的时刻，预录部分也一样。位置、大小、格式都可以自己定。</p></div>
+        <div class="card"><span class="k">存储</span><h3>有上限，也有保护规则</h3><p>按容量或剩余空间封顶。优先删最旧的、最小的，或者没有人的片段；最近的、大的、被标记的可以保住。</p></div>
+        <div class="card"><span class="k">备份</span><h3>NAS，外加 U 盘兜底</h3><p>把录完的片段复制出去并逐字节校验。NAS 睡着时先存 U 盘，等它回来再自动补上。</p></div>
+        <div class="card"><span class="k">备份条件</span><h3>只留值得留的</h3><p>满足条件才复制：同时出现两个人、超过五分钟、大于 60 MB、发生在夜里、来自某一台摄像头。</p></div>
+        <div class="card"><span class="k">计划</span><h3>免检测时段</h3><p>按星期和时间段暂停。正在录的那一段不会被腰斩，只是不再开始新的。</p></div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" style="padding-top:24px">
+  <section id="limits" style="padding-top:0">
+    <div class="wrap sec-in">
+      <span class="eyebrow">先说清楚</span>
+      <h2>它做不到的事。</h2>
+      <p class="lede">与其付完钱才发现，不如现在就看一眼。</p>
+      <div class="limits">
+        <div><b>没有提醒</b>有人进门时不会给你发手机通知。它的用法是事后回看。</div>
+        <div><b>不能远程看</b>实时画面和录像都在那台 Mac 上看，没有配套的手机 App。</div>
+        <div><b>不支持网络摄像机</b>不支持 RTSP 和 ONVIF，只支持 macOS 自己能识别的摄像头。</div>
+        <div><b>iPhone 有条件</b>连续互通相机需要 iPhone 锁屏、充电并靠近 Mac。MacBook 合盖后内置摄像头也会停。</div>
+        <div><b>只支持刷卡</b>通过 Polar 用 Visa 或 Mastercard 支付，暂不支持支付宝和微信。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="padding-top:0">
     <div class="wrap sec-in">
       <span class="eyebrow">价格</span>
-      <h2>一台摄像头免费，其余是 Pro。</h2>
+      <h2>一台摄像头免费，其余 $29 一次买断。</h2>
+      <p class="lede">本地运行的 App 没有每月要交的服务器账单，所以也不会每月来问你要钱。买一次，一直用。</p>
       <div class="pricing">
         <div class="plan">
-          <h3>免费</h3>
+          <h3>免费版</h3>
           <div class="price">$0 <small>永久</small></div>
           <ul>
-            <li>一台摄像头</li><li>动作 + 在场检测，预录</li><li>本机人像否决</li><li>日历与时间轴回放</li><li>内置检测预设</li>
-            <li class="no">多摄像头</li><li class="no">时间戳、备份、存储预算</li><li class="no">自动暂停时段、自定义预设</li>
+            <li>一台摄像头</li><li>动作 + 在场检测，预录</li><li>本机人像识别</li><li>日历与时间轴回放</li><li>内置检测预设</li>
+            <li class="no">多台摄像头</li><li class="no">时间戳、备份、存储上限</li><li class="no">自动暂停时段、自定义预设</li>
           </ul>
           <a class="btn" href={`${B}/download`}>下载</a>
         </div>
         <div class="plan pro">
           <h3>Pro</h3>
-          <div class="price">$29 <small>一次买断 · 2 台 Mac</small></div>
+          <div class="price">$29 <small>一次性 · 2 台 Mac</small></div>
           <ul>
-            <li>免费版全部功能</li><li>摄像头数量不限</li><li>烙印时间戳</li><li>自动备份到 NAS / U 盘</li><li>存储预算与保护规则</li><li>按摄像头单独设置</li><li>自动暂停时段</li><li>保存自定义检测预设</li><li>邮件支持</li>
+            <li>免费版全部功能</li><li>摄像头数量不限</li><li>烙印时间戳</li><li>自动备份到 NAS / U 盘，可设条件</li><li>存储上限与保护规则</li><li>按摄像头单独设置</li><li>自动暂停时段</li><li>保存自定义检测预设</li><li>邮件支持</li>
           </ul>
           <a class="btn primary" href={`${B}/buy`}>购买 Pro</a>
-          <p class="btn-note">首次启动自动开始 14 天试用，无需账号。含税，由 Polar 代收。</p>
+          <p class="btn-note">首次启动即开始 14 天完整试用，不用注册。14 天内无理由退款。税由 Polar 处理。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="faq" style="padding-top:24px">
+  <section id="faq" style="padding-top:0">
     <div class="wrap sec-in">
-      <span class="eyebrow">FAQ</span>
-      <h2>你会问的</h2>
-      <details><summary>视频会离开我的 Mac 吗？</summary><p>不会。检测、录制、回放都在本机。唯一的联网是验证 Pro 密钥。备份只去你指定的地方。</p></details>
-      <details><summary>我坐着不动会被切断吗？</summary><p>这正是它被造出来要避免的事。你在房间里场景读数就一直高，视觉识别看到人就否决所有停止。唯一的出口是你自己设的硬上限："完全不动 N 秒且没识别到人"。</p></details>
-      <details><summary>支持哪些摄像头？</summary><p>macOS 认作摄像头的都行：USB 摄像头（Insta360 Link 2C 实测）、内建摄像头、以及连续互通相机的 iPhone。</p></details>
-      <details><summary>公证了吗？</summary><p>还没有，首个版本是临时签名。第一次右键 → 打开即可。公证版本在路上，之后更新不会再要摄像头权限。</p></details>
-      <details><summary>退款？</summary><p>先用 14 天试用。买了以后有问题发邮件，通过 Polar 处理。</p></details>
+      <span class="eyebrow">常见问题</span>
+      <h2>该问的问题</h2>
+      <details open><summary>视频会离开我的 Mac 吗？</summary><p>不会。检测、录制、回看都在本机，录像就是你指定文件夹里的普通文件。整个 App 唯一的对外请求是校验 Pro 密钥，免费版一个都没有。备份只会去你自己指定的位置，包括完全不联网的移动硬盘。</p></details>
+      <details><summary>我坐着不动的时候，它会停止录制吗？</summary><p>这正是它专门要避免的事。只要你还在房间里，场景读数就一直高；只要人像识别还看得见人，任何停止都会被否决。唯一的出口是你自己设的硬上限：完全静止 N 秒且识别不到人。</p></details>
+      <details><summary>有没有 Apple 签名？</summary><p>有。每个版本都用 Developer ID 签名并经过 Apple 公证，macOS 会正常打开，不需要右键绕过，更新之后也不会反复申请摄像头权限。</p></details>
+      <details><summary>支持哪些摄像头？</summary><p>macOS 能识别为摄像头的都可以：USB 摄像头（开发时用的是 Insta360 Link 2C）、内置摄像头，以及通过连续互通相机接入的 iPhone。每一路独立检测，各写各的文件夹。</p></details>
+      <details><summary>占多少硬盘？</summary><p>画质由你决定，设置页会显示对应码率和每小时大概占多少。再设一个存储上限，Owl Cam 会守住它，按你选的规则删旧片段，而不是把硬盘塞满。</p></details>
+      <details><summary>如果我用着不满意呢？</summary><p>先用 14 天完整试用，不用注册也不用填卡。买了之后觉得不合适，14 天内发邮件，Polar 会退款。</p></details>
+      <p class="btn-note" style="margin-top:14px"><a href={`${B}/zh/faq`}>更多问题 →</a></p>
+    </div>
+  </section>
+
+  <section id="get" style="padding-top:0;padding-bottom:96px">
+    <div class="wrap sec-in" style="align-items:center;text-align:center">
+      <h2>把一台 Mac 对着房间，看看到底发生了什么。</h2>
+      <p class="lede" style="margin:0 auto">一台摄像头想用多久都免费，不需要注册任何东西。</p>
+      <div class="cta-row" style="margin-top:6px">
+        <a class="btn primary big" href={`${B}/download`}>下载 Mac 版</a>
+      </div>
+      <p class="btn-note">已通过 Apple 公证 · 需要 macOS 14 或更高 · 通用二进制（Apple 芯片与 Intel）· <a href="https://github.com/wuyumo/owlcam-releases/releases">更新说明</a></p>
     </div>
   </section>
 </Base>
