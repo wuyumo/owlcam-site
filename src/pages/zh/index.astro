@@ -88,6 +88,7 @@ spctl -a -vv -t install /Applications/Owl\ Cam.app
         <div class="card"><span class="k">存储</span><h3>有上限，也有保护规则</h3><p>按容量或剩余空间封顶。优先删最旧的、最小的，或者没有人的片段；最近的、大的、被标记的可以保住。</p></div>
         <div class="card"><span class="k">备份</span><h3>NAS，外加 U 盘兜底</h3><p>把录完的片段复制出去并逐字节校验。NAS 睡着时先存 U 盘，等它回来再自动补上。</p></div>
         <div class="card"><span class="k">备份条件</span><h3>只留值得留的</h3><p>满足条件才复制：同时出现两个人、超过五分钟、大于 60 MB、发生在夜里、来自某一台摄像头。</p></div>
+        <div class="card"><span class="k">更新</span><h3>告诉你，然后一键装好</h3><p>每天检查一次，有新版本直接在 App 里提示。每个更新都经过 Apple 公证并用 Owl Cam 自己的密钥签名，两者都通过才会安装。</p></div>
         <div class="card"><span class="k">计划</span><h3>免检测时段</h3><p>按星期和时间段暂停。正在录的那一段不会被腰斩，只是不再开始新的。</p></div>
       </div>
     </div>
@@ -143,6 +144,7 @@ spctl -a -vv -t install /Applications/Owl\ Cam.app
       <details open><summary>视频会离开我的 Mac 吗？</summary><p>不会。检测、录制、回看都在本机，录像就是你指定文件夹里的普通文件。整个 App 唯一的对外请求是校验 Pro 密钥，免费版一个都没有。备份只会去你自己指定的位置，包括完全不联网的移动硬盘。</p></details>
       <details><summary>我坐着不动的时候，它会停止录制吗？</summary><p>这正是它专门要避免的事。只要你还在房间里，场景读数就一直高；只要人像识别还看得见人，任何停止都会被否决。唯一的出口是你自己设的硬上限：完全静止 N 秒且识别不到人。</p></details>
       <details><summary>有没有 Apple 签名？</summary><p>有。每个版本都用 Developer ID 签名并经过 Apple 公证，macOS 会正常打开，不需要右键绕过，更新之后也不会反复申请摄像头权限。</p></details>
+      <details><summary>怎么更新？</summary><p>Owl Cam 每天检查一次新版本，有更新会直接在 App 里提示，点一下就下载安装好，然后自动重新开始工作。检查过程不发送任何信息。也可以在 设置 → 通用 里关掉自动检查，自己想更新时再点。</p></details>
       <details><summary>支持哪些摄像头？</summary><p>macOS 能识别为摄像头的都可以：USB 摄像头（开发时用的是 Insta360 Link 2C）、内置摄像头，以及通过连续互通相机接入的 iPhone。每一路独立检测，各写各的文件夹。</p></details>
       <details><summary>占多少硬盘？</summary><p>画质由你决定，设置页会显示对应码率和每小时大概占多少。再设一个存储上限，Owl Cam 会守住它，按你选的规则删旧片段，而不是把硬盘塞满。</p></details>
       <details><summary>如果我用着不满意呢？</summary><p>先用 14 天完整试用，不用注册也不用填卡。买了之后觉得不合适，14 天内发邮件，Polar 会退款。</p></details>
