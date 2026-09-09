@@ -1,3 +1,6 @@
 {
-  "rewrites": [{ "source": "/download", "destination": "/api/download" }]
+  "rewrites": [{ "source": "/download", "destination": "/api/download" }],
+  "redirects": [
+    { "source": "/appcast.xml", "destination": "https://github.com/wuyumo/owlcam-releases/releases/latest/download/appcast.xml", "permanent": false }
+  ]
 }
