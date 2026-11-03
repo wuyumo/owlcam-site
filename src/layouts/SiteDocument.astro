@@ -1,7 +1,7 @@
 ---
 import '../tokens.css';
-interface Props { title: string; description: string; lang: 'zh' | 'en'; path: string; }
-const { title, description, lang, path } = Astro.props;
+interface Props { title: string; description: string; lang: 'zh' | 'en'; path: string; ogType?: 'website' | 'article'; }
+const { title, description, lang, path, ogType = 'website' } = Astro.props;
 const origin = 'https://owlcam.app';
 const en = path.startsWith('/zh') ? (path === '/zh' ? '/' : path.slice(3)) : path;
 const zh = en === '/' ? '/zh' : `/zh${en}`;
@@ -24,10 +24,11 @@ const schema = {
   <link rel="icon" href="/icon-256.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
   <meta name="theme-color" content="#0a0c10"/>
   <meta property="og:title" content={title}/><meta property="og:description" content={description}/>
-  <meta property="og:url" content={`${origin}${path}`}/><meta property="og:type" content="website"/>
+  <meta property="og:url" content={`${origin}${path}`}/><meta property="og:type" content={ogType}/>
   <meta property="og:image" content={`${origin}/shot-live.jpg`}/><meta name="twitter:card" content="summary_large_image"/>
   <script type="application/ld+json" set:html={JSON.stringify(schema)}/>
   <script is:inline defer src="/_vercel/insights/script.js"></script>
+  <slot name="head"/>
 </head>
 <body><slot/></body>
 </html>

@@ -1,0 +1,9 @@
+---
+import Blog from '../layouts/Blog.astro';
+const {lang} = Astro.props;
+const zh = lang === 'zh';
+---
+<Blog title={zh?'内容与来源说明 — Owl Cam':'Editorial policy — Owl Cam'} description={zh?'了解 Owl Cam 博客如何选择话题、核对产品功能和使用资料。':'How the Owl Cam blog chooses topics and checks product claims and sources.'} lang={lang} path={`${zh?'/zh':''}/blog/editorial`}>
+<header class="blog-header"><a class="back" href={`${zh?'/zh':''}/blog`}>← {zh?'全部文章':'All articles'}</a><h1>{zh?'内容与来源说明':'About these guides'}</h1><p class="intro">{zh?'由 Owl Cam 开发者发布，帮助读者了解本地摄像头录像和产品是否适合自己的需求。':'Published by the maker of Owl Cam to help readers understand local camera recording and decide whether the product fits.'}</p></header>
+<article class="prose" style="max-width:740px;padding-bottom:80px"><h2>{zh?'如何选择和核对':'How we choose and check topics'}</h2><p>{zh?'选题来自实际问题、公开讨论和产品功能。产品信息依据现有功能、设置与发布说明；涉及其他平台时，优先链接其官方文档。文章明确说明限制，不把设想中的功能写成现有功能。':'Topics come from practical questions, public discussions and product features. Product claims follow available features, settings and releases; platform claims link to official documentation where possible. We explain limitations and do not describe planned features as available.'}</p><p>{zh?'AI 可辅助检索和撰写；文章由产品方发布，具有商业利益关联，并非独立评测。我们不虚构测试数据、客户评价或作者资历。':'AI may assist research and writing. These guides are published by the product maker, who has a commercial interest; they are not independent reviews. We do not invent test results, testimonials or author credentials.'}</p><h2>{zh?'纠错与更新':'Corrections and updates'}</h2><p>{zh?'产品和平台会变化。如果发现错误，请将文章链接、相关表述及可核对的来源发送至 ':'Products and platforms change. To report an error, send the article link, claim and a source we can check to '}<a href="mailto:hi@owlcam.app">hi@owlcam.app</a>。{zh?'实质性修改会保留原发布日期并标注更新日期。':' Substantive updates retain the original publication date and add an updated date.'}</p></article>
+</Blog>

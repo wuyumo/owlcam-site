@@ -1,0 +1,22 @@
+---
+import { render } from 'astro:content';
+import Blog from '../layouts/Blog.astro';
+import { getPosts, postPath, blogPath, categoryLabel, origin } from '../lib/blog';
+const {post} = Astro.props;
+const {Content, headings} = await render(post);
+const d = post.data;
+const zh = d.lang === 'zh';
+const path = postPath(post);
+const posts = (await getPosts(d.lang)).filter(p => p.data.slug !== d.slug);
+const related = [...posts.filter(p => p.data.category === d.category), ...posts.filter(p => p.data.category !== d.category)].slice(0, 2);
+const schema = {'@context':'https://schema.org','@graph':[
+  {'@type':'BlogPosting',headline:d.title,description:d.description,datePublished:`${d.published}T09:00:00+08:00`,dateModified:`${d.updated || d.published}T09:00:00+08:00`,inLanguage:zh?'zh-CN':'en',mainEntityOfPage:`${origin}${path}`,image:`${origin}/shot-live.jpg`,author:{'@type':'Organization',name:'Owl Cam',url:`${origin}${blogPath(d.lang)}/editorial`},publisher:{'@type':'Organization',name:'Owl Cam',url:origin,logo:{'@type':'ImageObject',url:`${origin}/icon-256.png`}}},
+  {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Owl Cam',item:`${origin}${zh?'/zh':'/'}`},{'@type':'ListItem',position:2,name:zh?'博客':'Blog',item:`${origin}${blogPath(d.lang)}`},{'@type':'ListItem',position:3,name:d.title,item:`${origin}${path}`}]},
+]};
+---
+<Blog title={`${d.title} — Owl Cam`} description={d.description} lang={d.lang} path={path} article>
+<Fragment slot="head"><meta property="article:published_time" content={`${d.published}T09:00:00+08:00`}/><meta property="article:modified_time" content={`${d.updated || d.published}T09:00:00+08:00`}/><script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')}/></Fragment>
+<header class="blog-header"><a class="back" href={blogPath(d.lang)}>← {zh?'全部文章':'All articles'}</a><p class="eyebrow" style="margin-top:28px">{categoryLabel(d.category,d.lang)}</p><h1>{d.title}</h1><p class="intro">{d.description}</p><p class="meta"><a href={`${blogPath(d.lang)}/editorial`}>{zh?'Owl Cam 开发者':'The maker of Owl Cam'}</a> · <time datetime={d.published}>{d.published}</time>{d.updated && d.updated !== d.published && ` · ${zh?'更新':'Updated'} ${d.updated}`}</p></header>
+<div class="article-layout"><div><article class="prose"><Content/></article><aside class="article-cta"><h2>{zh?'试录你的第一个事件':'Record your first event'}</h2><p>{zh?'一台摄像头永久免费，无需注册。macOS 14+，支持 Apple 芯片与 Intel。':'One camera, free forever. No account. macOS 14+, Apple silicon and Intel.'}</p><a class="button" href="/download">{zh?'免费下载 Owl Cam':'Download Owl Cam free'} ↓</a></aside><p class="editorial-note">{zh?'本文由产品开发者发布，使用 AI 辅助研究与撰写。产品说明及限制见 ':'Published by the product maker with AI-assisted research and writing. See the '}<a href={zh?'/zh/faq':'/faq'}>FAQ</a>{zh?'；平台信息以文内官方来源为准。':'; platform claims follow the official sources linked in the guide.'}</p></div><aside class="toc" aria-label={zh?'目录':'On this page'}><p>{zh?'本文内容':'ON THIS PAGE'}</p>{headings.filter(h=>h.depth===2).map(h=><a href={`#${h.slug}`}>{h.text}</a>)}</aside></div>
+<section class="related"><h2>{zh?'继续阅读':'Keep reading'}</h2><div class="post-grid">{related.map(p=><article class="post-card"><span class="eyebrow">{categoryLabel(p.data.category,d.lang)}</span><h2><a href={postPath(p)}>{p.data.title}</a></h2><p>{p.data.description}</p></article>)}</div></section>
+</Blog>

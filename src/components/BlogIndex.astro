@@ -1,0 +1,12 @@
+---
+import Blog from '../layouts/Blog.astro';
+import { getPosts, postPath, blogPath, categoryLabel } from '../lib/blog';
+const {lang} = Astro.props;
+const zh = lang === 'zh';
+const posts = await getPosts(lang);
+---
+<Blog title={zh ? 'Mac 本地监控与摄像头录像指南 — Owl Cam 博客' : 'Mac camera recording & local monitoring guides — Owl Cam Blog'} description={zh ? '用 Mac 和现有摄像头记录活动：人物识别、预录、iPhone 摄像头、本地存储和 NAS 备份的实用指南。' : 'Practical guides to Mac camera recording, person detection, pre-roll, iPhone webcams, local storage and NAS backup.'} lang={lang} path={blogPath(lang)}>
+<header class="blog-header"><p class="eyebrow">OWL CAM / {zh ? '实用指南与社区话题' : 'GUIDES & COMMUNITY TOPICS'}</p><h1>{zh ? '把现有设备，用得更好' : 'Make more of the camera you already have'}</h1><p class="intro">{zh ? '从第一段本地录像，到找到并保留值得留下的片段。这里回答 Mac 摄像头录制中的具体问题。' : 'From your first local recording to finding and keeping the moments that matter. Answers to practical Mac camera questions.'}</p></header>
+<p class="editorial-note">{zh ? '由 Owl Cam 开发者发布 · ' : 'Published by the maker of Owl Cam · '}<a href={`${blogPath(lang)}/editorial`}>{zh ? '内容与来源说明' : 'How we check our guides'}</a> · <a href={`${blogPath(lang)}/rss.xml`}>RSS</a></p>
+<div class="post-grid">{posts.map(post => <article class="post-card"><span class="eyebrow">{categoryLabel(post.data.category, lang)} · <time datetime={post.data.published}>{post.data.published}</time></span><h2><a href={postPath(post)}>{post.data.title}</a></h2><p>{post.data.description}</p><a class="read" href={postPath(post)}>{zh ? '阅读指南' : 'Read the guide'} →</a></article>)}</div>
+</Blog>
