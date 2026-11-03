@@ -26,7 +26,9 @@ import Base from '../layouts/Base.astro';
     try {
       const r = await fetch('https://api.polar.sh/v1/customer-portal/license-keys/?limit=5', { headers: { Authorization: 'Bearer ' + t } });
       if (!r.ok) return;
-      const j = await r.json(); const k = (j.items || []).find(x => x.key && /^OWL-/.test(x.key)) || (j.items || [])[0];
+      const j = await r.json(); const keys = (j.items || []).filter(x => x.key && /^OWL-/.test(x.key) && x.status === 'granted');
+      // Multiple purchases can yield multiple keys; use the portal instead of guessing.
+      const k = keys.length === 1 ? keys[0] : null;
       if (!k || !k.key) return;
       document.getElementById('key').textContent = k.key;
       document.getElementById('keybox').hidden = false; document.getElementById('mailbox').hidden = true;

@@ -16,7 +16,7 @@ Ask whether recording continues without a subscription, where files are stored, 
 
 ## Using a Mac you already own
 
-Owl Cam records locally using a camera recognized by macOS. One camera, detection, recording and playback remain free after the 14-day Pro trial. Pro is a $29 one-time purchase and adds features including multiple cameras and backup. You need a powered-on Mac, an available camera and disk space.
+Owl Cam records locally using a camera recognized by macOS. One camera, detection, recording and playback remain free after the 14-day Pro trial. Pro is available for $29.99/year or $3.99/month and adds features including multiple cameras and backup. You need a powered-on Mac, an available camera and disk space.
 
 ## When another setup is a better fit
 

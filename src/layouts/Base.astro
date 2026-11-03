@@ -12,7 +12,7 @@ const schema = {
   '@graph': [
     { '@type': 'Organization', '@id': `${ORIGIN}/#org`, name: 'Owl Cam', url: ORIGIN, logo: `${ORIGIN}/icon-256.png` },
     { '@type': 'SoftwareApplication', name: 'Owl Cam', operatingSystem: 'macOS 14+', applicationCategory: 'SecurityApplication',
-      offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD' }, { '@type': 'Offer', price: '29', priceCurrency: 'USD', name: 'Pro' }],
+      offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD' }, { '@type': 'Offer', price: '29.99', priceCurrency: 'USD', name: 'Pro annual subscription', priceSpecification: { '@type': 'UnitPriceSpecification', price: '29.99', priceCurrency: 'USD', unitCode: 'ANN' } }],
       url: ORIGIN, downloadUrl: `${ORIGIN}/download` },
   ],
 };

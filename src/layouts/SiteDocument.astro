@@ -9,7 +9,7 @@ const schema = {
   '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Owl Cam',
   operatingSystem: 'macOS 14+', applicationCategory: 'SecurityApplication', url: origin,
   downloadUrl: `${origin}/download`,
-  offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD' }, { '@type': 'Offer', price: '29', priceCurrency: 'USD', name: 'Pro' }],
+  offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD' }, { '@type': 'Offer', price: '29.99', priceCurrency: 'USD', name: 'Pro annual subscription', priceSpecification: { '@type': 'UnitPriceSpecification', price: '29.99', priceCurrency: 'USD', unitCode: 'ANN' } }],
 };
 ---
 <!doctype html>
