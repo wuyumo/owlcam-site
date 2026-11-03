@@ -1,0 +1,36 @@
+---
+import '../tokens.css';
+interface Props { title: string; description: string; lang: 'zh' | 'en'; path: string; }
+const { title, description, lang, path } = Astro.props;
+const origin = 'https://owlcam.app';
+const en = path.startsWith('/zh') ? (path === '/zh' ? '/' : path.slice(3)) : path;
+const zh = en === '/' ? '/zh' : `/zh${en}`;
+const schema = {
+  '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Owl Cam',
+  operatingSystem: 'macOS 14+', applicationCategory: 'SecurityApplication', url: origin,
+  downloadUrl: `${origin}/download`,
+  offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD' }, { '@type': 'Offer', price: '29', priceCurrency: 'USD', name: 'Pro' }],
+};
+---
+<!doctype html>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{title}</title><meta name="description" content={description}/>
+  <link rel="canonical" href={`${origin}${path}`}/>
+  <link rel="alternate" hreflang="en" href={`${origin}${en}`}/>
+  <link rel="alternate" hreflang="zh-CN" href={`${origin}${zh}`}/>
+  <link rel="alternate" hreflang="x-default" href={`${origin}${en}`}/>
+  <link rel="icon" href="/icon-256.png"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0a0c10"/>
+  <meta property="og:title" content={title}/><meta property="og:description" content={description}/>
+  <meta property="og:url" content={`${origin}${path}`}/><meta property="og:type" content="website"/>
+  <meta property="og:image" content={`${origin}/shot-live.jpg`}/><meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}/>
+  <script is:inline defer src="/_vercel/insights/script.js"></script>
+</head>
+<body><slot/></body>
+</html>
+<style is:global>
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}h1,h2,h3,p{margin:0}a{color:inherit;text-decoration:none}button{font:inherit}button,a,summary{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--color-accent);outline-offset:5px}button{cursor:pointer}img{max-width:100%;display:block}::selection{background:#819fdf55}button:disabled{cursor:default}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>

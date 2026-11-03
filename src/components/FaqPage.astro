@@ -1,0 +1,12 @@
+---
+import InfoPage from '../layouts/InfoPage.astro';
+import { coreFaqs, additionalFaqs } from '../content/faqs';
+const { lang } = Astro.props;
+const zh = lang === 'zh';
+const t = (cn: string, en: string) => zh ? cn : en;
+const entries = [...coreFaqs(lang), ...additionalFaqs(lang)];
+---
+<InfoPage title={t('Owl Cam — 常见问题','Owl Cam — Frequently asked questions')} description={t('关于录制、设备、隐私、备份与 Pro 的实际问题。','Practical answers about recording, cameras, privacy, backups, and Pro.')} lang={lang} kind="faq">
+ {entries.map(([question, answer], index) => <details open={index === 0}><summary>{question}</summary><p>{answer}</p></details>)}
+ <div class="note"><p>{t('还有问题？','Still have a question?')} <a href="mailto:hi@owlcam.app">hi@owlcam.app</a> · <a href={zh ? '/zh/privacy' : '/privacy'}>{t('查看隐私说明','Read the privacy notice')}</a></p></div>
+</InfoPage>
