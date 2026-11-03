@@ -1,11 +1,11 @@
 export function coreFaqs(lang: 'zh' | 'en') {
 const t = (cn: string, en: string) => lang === 'zh' ? cn : en;
 return [
- [t('坐着不动，也会继续录吗？','Does it keep recording when I sit still?'),t('开启人像识别后，检测到人仍在画面中会保持录制；场景差异也能帮助识别静止的物体。识别结果会受光线、遮挡和机位影响，建议先在实际环境里试录并调整阈值。','With person detection enabled, a detected person keeps recording active. Scene differences also help detect stationary objects. Lighting, framing, and occlusion affect detection; test your setup and adjust thresholds.')],
- [t('一个文件能录多久？','How long can one file record?'),t('从 1.1.6 起，不再每 15 分钟自动分段，也没有应用设定的单文件大小上限。已实测同一文件超过 15 分钟和 120 MiB 后继续增长。录制仍受活动检测、设备状态和磁盘空间影响；文件结束后才进入自动备份流程。','Since 1.1.6, recordings no longer split automatically every 15 minutes, with no app-imposed file-size cap. A live recording was verified to grow beyond 15 minutes and 120 MiB in the same file. Detection, device state, and disk space still apply. Automatic backup processes finished recordings.')],
- [t('可以用手机远程看、接收提醒吗？','Can I watch remotely or receive alerts?'),t('目前不支持远程直播或手机推送，也没有配套手机 App。实时画面与录像在 Mac 上查看。它适合把事情记录下来，供你回来后查找。','There is no remote streaming, phone app, or push notification feature. Live view and recordings are viewed on the Mac. Owl Cam is designed to record events for later review.')],
+ [t('坐着不动，也会继续录吗？','Does it keep recording when I sit still?'),t('开启人像识别后，检测到人时会继续录制。光线、遮挡和机位会影响识别，建议先试录。','With person detection on, recording continues while a person is detected. Lighting and camera position affect detection, so test your setup first.')],
+ [t('一个文件能录多久？','How long can one file record?'),t('录像不会每 15 分钟自动分段。持续录制受检测状态、设备和磁盘空间影响；文件结束后才会自动备份。','Recordings no longer split automatically every 15 minutes. Recording depends on detection, device state, and disk space. Backup starts after a file is finished.')],
+ [t('可以用手机远程看、接收提醒吗？','Can I watch remotely or receive alerts?'),t('目前不支持远程直播、手机 App 或推送提醒。请在 Mac 上查看实时画面和录像。','No. There is no remote streaming, phone app, or push notification. View live video and recordings on your Mac.')],
  [t('支持什么设备？Mac 要一直开着吗？','What hardware works? Does the Mac need to stay on?'),t('需要 macOS 14 或更新版本，支持 Apple 芯片和 Intel。支持 macOS 能识别的内置、USB 和连续互通相机，不支持 RTSP / ONVIF 网络摄像机。录制需要 Mac 保持开机、摄像头持续可用；显示器可以休眠。','Requires macOS 14 or later, on Apple silicon or Intel. Supports built-in, USB, and Continuity cameras recognized by macOS, not RTSP / ONVIF IP cameras. The Mac must stay on with the camera available; the display can sleep.')],
- [t('14 天试用结束后会怎样？','What happens after the 14-day trial?'),t('首次启动可试用完整 Pro 功能，无需注册或填写银行卡。到期后仍可免费使用一台摄像头进行检测、录制和回放。需要多摄像头、时间戳、备份和存储管理时，再购买 Pro。','Your first launch starts a full 14-day Pro trial without an account or card. Afterwards, detection, recording, and playback remain free for one camera. Buy Pro when you need multiple cameras, timestamps, backups, and storage management.')],
+ [t('14 天试用结束后会怎样？','What happens after the 14-day trial?'),t('首次启动可免费试用 Pro 14 天，无需注册或银行卡。到期后，一台摄像头的检测、录制和回放仍可免费使用。','Try Pro free for 14 days without an account or card. Afterwards, detection, recording, and playback remain free for one camera.')],
 ];
 }
 
